@@ -1,6 +1,7 @@
 # CountryApp
 
 ### CONCEPTS
+* children + loadChildren
 
 ### TECHNOLOGIES
 * tailwindcss
