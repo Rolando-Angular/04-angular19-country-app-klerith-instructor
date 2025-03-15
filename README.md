@@ -2,6 +2,7 @@
 
 ### CONCEPTS
 * children + loadChildren
+* signal (output + input)
 
 ### TECHNOLOGIES
 * tailwindcss

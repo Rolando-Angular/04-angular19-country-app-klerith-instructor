@@ -4,3 +4,7 @@
 @plugin "daisyui" {
   themes: light --default, sunset --prefersdark;
 }
+
+.header-icon {
+  color: blue;
+}
