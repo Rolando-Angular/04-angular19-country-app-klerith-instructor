@@ -1,4 +1,8 @@
 <!-- search-input -->
-<shared-search-input (searchValue)="onSearch($event)" placeholder="Buscar por capital" />
+<shared-search-input (searchValue)="query.set($event)" placeholder="Buscar por capital" />
 <!-- list -->
-<country-list [countries]="countries()" />
+@if(countryResource.error()) {
+<h3>{{countryResource.error()}}</h3>
+} @else if(countries()) {
+<country-list [countries]="countries()!" />
+}
