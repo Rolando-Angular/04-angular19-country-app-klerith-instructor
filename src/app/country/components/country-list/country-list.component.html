@@ -1,4 +1,4 @@
-<section class="mt-5">
+<section class="mt-5 select-none">
   <table class="table table-md mt-2 w-full">
     <thead>
       <tr>
@@ -12,15 +12,21 @@
       </tr>
     </thead>
     <tbody>
+      @for(country of countries(); track country.cca2; let index = $index;) {
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{index + 1}}</td>
+        <td>{{country.flag}}</td>
+        <td>
+          <img [src]="country.flagSvg" [alt]="country.name" class="w-10 max-w-full">
+        </td>
+        <td>{{country.name}}</td>
+        <td>{{country.capital}}</td>
+        <td>{{country.population}}</td>
+        <td>
+          <a class="link-primary cursor-pointer">Más información</a>
+        </td>
       </tr>
+      }
     </tbody>
   </table>
 </section>

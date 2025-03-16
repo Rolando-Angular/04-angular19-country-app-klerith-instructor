@@ -1,8 +1,11 @@
 # CountryApp
 
 ### CONCEPTS
-* children + loadChildren
+* routerLink + routerLinkActive
+* children + loadChildren + loadComponent
 * signal (output + input)
+* httpClient + provideHttpClient (withFetch)
+* rxjs (map)
 
 ### TECHNOLOGIES
 * tailwindcss

@@ -13,7 +13,6 @@ import { CountryListComponent } from "../../components/country-list/country-list
 export default class ByCountryPageComponent {
 
   public onSearch(value: string): void {
-    console.log({ value });
   }
 
 }
