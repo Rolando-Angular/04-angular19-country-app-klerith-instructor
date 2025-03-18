@@ -6,7 +6,7 @@ import { Component, input, output } from '@angular/core';
 })
 export class SearchInputComponent {
 
-  public placeholder = input("Busqueda");
+  public placeholder = input<string>("Busqueda");
   public searchValue = output<string>();
 
 }

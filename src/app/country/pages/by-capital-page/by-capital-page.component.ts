@@ -1,9 +1,11 @@
-import { Component, computed, inject, resource, ResourceStatus, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
+import { rxResource } from '@angular/core/rxjs-interop';
 import { CountryListComponent } from "../../components/country-list/country-list.component";
 import { SearchInputComponent } from '../../../shared/components/search-input/search-input.component';
 import { CountryService } from '../../services/country.service';
-import { firstValueFrom } from 'rxjs';
+import { of } from 'rxjs';
 import { Country } from '../../interfaces/country.interface';
+import { CountryRequest } from '../../interfaces/country-request.interface';
 
 @Component({
   selector: 'app-by-capital-page',
@@ -15,20 +17,19 @@ import { Country } from '../../interfaces/country.interface';
 })
 export class ByCapitalPageComponent {
 
-  public query = signal('');
-  public countryResource = resource({
-    request: () => ({ query: this.query() }),
-    loader: async ({ request }) => {
-      if (!request.query) {
-        return [];
-      }
-
-      return await firstValueFrom(
-        this.countryService.searchByCapital(request.query)
-      );
-    }
-  });
+  public query = signal<string>('');
   public countries = computed<Country[] | undefined>(() => this.countryResource.value());
+
+  public countryResource = rxResource<Country[], CountryRequest>({
+    request: () => ({ query: this.query() }),
+    loader: ({ request }) => {
+      if (!request.query) {
+        return of([]);
+      }
+      return this.countryService.searchByCapital(request.query);
+    },
+  });
+
   private countryService = inject(CountryService);
 
   // public isLoading = signal(false);

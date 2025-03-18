@@ -15,7 +15,7 @@ export class CountryMapper {
       flag: data.flag,
       flagSvg: data.flags.svg,
       name: data.translations["spa"]?.common ?? 'unknown',
-      capital: data.capital?.length ? data.capital.join(",") : "",
+      capital: data.capital?.length ? data.capital.join(",") : '',
       population: data.population,
     }
     return country;

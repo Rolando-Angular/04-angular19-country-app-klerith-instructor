@@ -27,7 +27,29 @@
           </span>
         </td>
         <td>
-          <a class="link-primary cursor-pointer">Más información</a>
+          <a class="link-primary cursor-pointer" [routerLink]="['/country/by', country.cca2]">Más información</a>
+        </td>
+      </tr>
+      }
+
+      @if(errorMessage()) {
+      <tr>
+        <td colspan="7" class="text-center">
+          {{errorMessage()}}
+        </td>
+      </tr>
+      }
+
+      @if(isLoading()) {
+      <tr>
+        <td colspan="6" class="text-center">
+          Buscando países
+        </td>
+      </tr>
+      } @else if(isEmpty()) {
+      <tr>
+        <td colspan="6" class="text-center">
+          No se encontraron resultados
         </td>
       </tr>
       }

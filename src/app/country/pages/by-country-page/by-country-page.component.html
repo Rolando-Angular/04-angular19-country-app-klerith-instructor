@@ -1,4 +1,5 @@
 <!-- search-input -->
-<shared-search-input (searchValue)="onSearch($event)" placeholder="Buscar por país" />
+<shared-search-input (searchValue)="query.set($event)" placeholder="Buscar por país" />
 <!-- list -->
-<country-list [countries]="[]" />
+<country-list [countries]="countries() ?? []" [errorMessage]="countryResource.error()" [isEmpty]="!countries()?.length"
+  [isLoading]="countryResource.isLoading()" />

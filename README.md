@@ -4,9 +4,9 @@
 * @for + @if-@else if
 * routerLink + routerLinkActive
 * children + loadChildren + loadComponent
-* signal (output + input + resource (request + loader))
+* signal (output + input + resource (request + loader) + rxResource(request + loader))
 * httpClient + provideHttpClient (withFetch)
-* rxjs (map + firstValueFrom + throwError)
+* rxjs (map + firstValueFrom + throwError + delay)
 * subscribe (next + error)
 
 ### TECHNOLOGIES
