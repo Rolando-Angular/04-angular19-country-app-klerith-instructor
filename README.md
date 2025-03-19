@@ -2,9 +2,10 @@
 
 ### CONCEPTS
 * @for + @if-@else if
-* routerLink + routerLinkActive
+* routerLink + routerLinkActive + ActivatedRouter + Location
 * children + loadChildren + loadComponent
-* signal (output + input + resource (request + loader) + rxResource(request + loader))
+* signal (output + input + toSignal)
+* resource (request + loader) + rxResource(request + loader)
 * httpClient + provideHttpClient (withFetch)
 * rxjs (map + firstValueFrom + throwError + delay)
 * subscribe (next + error)

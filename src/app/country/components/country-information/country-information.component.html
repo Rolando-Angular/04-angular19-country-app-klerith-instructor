@@ -1,0 +1,40 @@
+<section>
+  <h1 class="text-3xl">{{country().name}}</h1>
+  <h2 class="text-xl font-thin">Población {{country().population | number}}</h2>
+  <div class="stats shadow mt-2">
+    <div class="stat">
+      <div class="stat-title">Población</div>
+      <div class="stat-value text-primary">{{country().population | number}}</div>
+      <div class="stat-desc text-[15px]">Área: {{country().area | number}}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Nombre</div>
+      <div class="stat-value text-secondary">{{country().name}}</div>
+      <div class="stat-desc text-[15px]">Oficial: {{country().officialName}}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Región</div>
+      <div class="stat-value text-secondary">{{country().region}}</div>
+      <div class="stat-desc text-[15px]">Subregión: {{country().subregion}}</div>
+    </div>
+    <div class="stat space-y-2">
+      <div class="stat-title">Bandera</div>
+      <div class="stat-value text-secondary">
+        <img class="w-1/2" [src]="country().flagSvg" [alt]="country().name">
+      </div>
+      <div class="stat-desc text-[15px]">Subregión: {{country().subregion}}</div>
+    </div>
+  </div>
+  <aside>
+    <figure class="diff aspect-16/9" tabindex="0">
+      <div class="diff-item-1" role="img">
+        <img [alt]="country().name" [src]="country().flagSvg" />
+      </div>
+      <div class="diff-item-2 opacity-50 brightness-75" role="img" tabindex="0">
+        <img [alt]="country().name" [src]="country().flagSvg" />
+      </div>
+      <div class="diff-resizer"></div>
+    </figure>
+  </aside>
+
+</section>

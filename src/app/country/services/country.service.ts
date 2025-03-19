@@ -20,7 +20,7 @@ export class CountryService {
       .pipe(
         map(CountryMapper.toCountry),
         catchError((err) => {
-          return throwError(() => new Error(`No se puedo obtener países con esa query: ${query}`));
+          return throwError(() => new Error(`No se puede obtener países con esa query: ${query}`));
         }),
       );
   }
@@ -31,8 +31,19 @@ export class CountryService {
         map(CountryMapper.toCountry),
         delay(2000),
         catchError((err) => {
-          return throwError(() => new Error(`No se puede obtener países con esa query: ${query}`))
-        })
+          return throwError(() => new Error(`No se puede obtener países con esa query: ${query}`));
+        }),
+      );
+  }
+
+  public searchCountryByAlphaCode(code: string): Observable<Country | undefined> {
+    return this.httpClient.get<RESTCountry[]>(`${this.env["COUNTRY_API_URL"]}/alpha/${code}`)
+      .pipe(
+        map(CountryMapper.toCountry),
+        map((countries) => countries?.at(0)),
+        catchError((err) => {
+          return throwError(() => new Error(`No se puede obtener países con ese código: ${code}`));
+        }),
       );
   }
 

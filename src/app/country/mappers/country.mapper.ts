@@ -15,8 +15,12 @@ export class CountryMapper {
       flag: data.flag,
       flagSvg: data.flags.svg,
       name: data.translations["spa"]?.common ?? 'unknown',
+      officialName: data.translations["spa"]?.official ?? 'unknown',
       capital: data.capital?.length ? data.capital.join(",") : '',
       population: data.population,
+      area: data.area,
+      region: data.region,
+      subregion: data.subregion,
     }
     return country;
   }
