@@ -1,5 +1,5 @@
 <!-- search-input -->
-<shared-search-input (searchValue)="query.set($event)" placeholder="Buscar por capital" />
+<shared-search-input (searchValue)="query.set($event)" placeholder="Buscar por capital" [debounceTime]="500" />
 <!-- list -->
 <country-list [countries]="countries() ?? []" [errorMessage]="countryResource.error()" [isEmpty]="!countries()?.length"
   [isLoading]="countryResource.isLoading()" />

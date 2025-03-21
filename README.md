@@ -5,6 +5,7 @@
 * routerLink + routerLinkActive + ActivatedRouter + Location
 * children + loadChildren + loadComponent
 * signal (output + input + toSignal)
+* effect (onCleanup)
 * resource (request + loader) + rxResource(request + loader)
 * httpClient + provideHttpClient (withFetch)
 * rxjs (map + firstValueFrom + throwError + delay)
