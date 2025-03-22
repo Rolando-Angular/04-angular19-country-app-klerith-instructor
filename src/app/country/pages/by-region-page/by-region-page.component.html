@@ -1,2 +1,15 @@
+<h1 class="text-2xl text-center">Por región</h1>
+<h3 class="text-lg text-center">Seleccione una región</h3>
+<!-- region search -->
+<section class="flex justify-center gap-5 mt-3">
+  @for (regionSearch of regionsSearch; track regionSearch.category;) {
+  <button type="button" [class]="'btn ' + regionSearch.style"
+    [class.btn-soft]="selectedRegionSearch() !== regionSearch.category"
+    [class.btn-dash]="selectedRegionSearch() === regionSearch.category"
+    (click)="selectedRegionSearch.set(regionSearch.category)">{{regionSearch.category}}</button>
+  }
+</section>
+
 <!-- list -->
-<country-list [countries]="[]" />
+<country-list [countries]="countries()" [errorMessage]="countryResource.error()"
+  [isLoading]="countryResource.isLoading()" [isEmpty]="!countries().length" />
