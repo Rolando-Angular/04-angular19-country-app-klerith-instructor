@@ -3,8 +3,8 @@ import { rxResource, toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { CountryService } from '../../services/country.service';
-import { CountryRequest } from '../../interfaces/country-request.interface';
-import { Country } from '../../interfaces/country.interface';
+import type { CountryRequest } from '../../interfaces/country-request.interface';
+import type { Country } from '../../interfaces/country.interface';
 import { NotFoundComponent } from "../../../shared/components/not-found/not-found.component";
 import { CountryInformationComponent } from "../../components/country-information/country-information.component";
 

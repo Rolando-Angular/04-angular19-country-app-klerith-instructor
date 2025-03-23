@@ -5,8 +5,8 @@ import { CountryListComponent } from "../../components/country-list/country-list
 import { SearchInputComponent } from '../../../shared/components/search-input/search-input.component';
 import { CountryService } from '../../services/country.service';
 import { of } from 'rxjs';
-import { Country } from '../../interfaces/country.interface';
-import { CountryRequest } from '../../interfaces/country-request.interface';
+import type { Country } from '../../interfaces/country.interface';
+import type { CountryRequest } from '../../interfaces/country-request.interface';
 
 @Component({
   selector: 'app-by-capital-page',

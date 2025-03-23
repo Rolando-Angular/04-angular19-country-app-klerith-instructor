@@ -2,9 +2,9 @@ import { Component, computed, inject, linkedSignal, signal } from '@angular/core
 import { SearchInputComponent } from "../../../shared/components/search-input/search-input.component";
 import { CountryListComponent } from "../../components/country-list/country-list.component";
 import { CountryService } from '../../services/country.service';
-import { Country } from '../../interfaces/country.interface';
+import type { Country } from '../../interfaces/country.interface';
 import { of } from 'rxjs';
-import { CountryRequest } from '../../interfaces/country-request.interface';
+import type { CountryRequest } from '../../interfaces/country-request.interface';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 

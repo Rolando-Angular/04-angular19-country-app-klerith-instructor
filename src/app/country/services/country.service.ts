@@ -1,11 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { environment } from "../../../environments/environment";
-import { catchError, delay, map, Observable, of, tap, throwError } from "rxjs";
-import { RESTCountry } from "../interfaces/rest-countries.interface";
+import { catchError, map, Observable, of, tap, throwError } from "rxjs";
+import type { RESTCountry } from "../interfaces/rest-countries.interface";
 import { CountryMapper } from "../mappers/country.mapper";
-import { Country } from "../interfaces/country.interface";
-import { Region } from "../interfaces/region.type";
+import type { Country } from "../interfaces/country.interface";
+import type { Region } from "../interfaces/region.type";
 
 @Injectable({
   providedIn: 'root',

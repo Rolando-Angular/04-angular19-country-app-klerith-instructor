@@ -1,12 +1,12 @@
 import { Component, computed, inject, linkedSignal } from '@angular/core';
 import { CountryListComponent } from "../../components/country-list/country-list.component";
-import { RegionSearch } from '../../interfaces/region.interface';
+import type { RegionSearch } from '../../interfaces/region.interface';
 import { CountryService } from '../../services/country.service';
 import { rxResource } from '@angular/core/rxjs-interop';
-import { CountryRequest } from '../../interfaces/country-request.interface';
-import { Country } from '../../interfaces/country.interface';
+import type { CountryRequest } from '../../interfaces/country-request.interface';
+import type { Country } from '../../interfaces/country.interface';
 import { of } from 'rxjs';
-import { Region } from '../../interfaces/region.type';
+import type { Region } from '../../interfaces/region.type';
 import { ActivatedRoute, Router } from '@angular/router';
 
 function validateQueryParam(queryParam: string): Region {
