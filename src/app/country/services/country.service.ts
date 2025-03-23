@@ -22,10 +22,7 @@ export class CountryService {
   public searchByCapital(query: string): Observable<Country[]> {
     const queryLower: string = query.toLowerCase();
     if (this.queryCacheCapital.has(queryLower)) {
-      return of(this.queryCacheCapital.get(queryLower) ?? [])
-        .pipe(
-          delay(1000),
-        );
+      return of(this.queryCacheCapital.get(queryLower) ?? []);
     }
 
     return this.httpClient.get<Array<RESTCountry>>(`${this.env['COUNTRY_API_URL']}/capital/${queryLower}`)
@@ -41,10 +38,7 @@ export class CountryService {
   public searchByCountry(query: string): Observable<Country[]> {
     const queryLower: string = query.toLowerCase();
     if (this.queryCacheCountry.has(queryLower)) {
-      return of(this.queryCacheCountry.get(queryLower) ?? [])
-        .pipe(
-          delay(1000),
-        );
+      return of(this.queryCacheCountry.get(queryLower) ?? []);
     }
 
     return this.httpClient.get<RESTCountry[]>(`${this.env['COUNTRY_API_URL']}/name/${queryLower}`)

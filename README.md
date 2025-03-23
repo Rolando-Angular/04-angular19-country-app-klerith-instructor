@@ -2,9 +2,10 @@
 
 ### CONCEPTS
 * @for + @if-@else if
-* routerLink + routerLinkActive + ActivatedRouter + Location
+* routerLink + routerLinkActive + Location
+* ActivatedRouter (snapshot)
 * children + loadChildren + loadComponent
-* signal (output + input + toSignal)
+* signal (output + input + toSignal + linkedSignal)
 * effect (onCleanup)
 * resource (request + loader) + rxResource(request + loader)
 * httpClient + provideHttpClient (withFetch)

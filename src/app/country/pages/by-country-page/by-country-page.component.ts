@@ -18,7 +18,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
 export default class ByCountryPageComponent {
 
   public query = signal<string>('');
-  public countries = computed<Country[] | undefined>(() => this.countryResource.value());
+  public countries = computed<Country[]>(() => this.countryResource.value() ?? []);
 
   public countryResource = rxResource<Country[], CountryRequest>({
     request: () => ({ query: this.query() }),
