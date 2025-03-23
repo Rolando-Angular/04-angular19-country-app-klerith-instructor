@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, linkedSignal } from '@angular/core';
 import { CountryListComponent } from "../../components/country-list/country-list.component";
 import { RegionSearch } from '../../interfaces/region.interface';
 import { CountryService } from '../../services/country.service';
@@ -7,6 +7,21 @@ import { CountryRequest } from '../../interfaces/country-request.interface';
 import { Country } from '../../interfaces/country.interface';
 import { of } from 'rxjs';
 import { Region } from '../../interfaces/region.type';
+import { ActivatedRoute, Router } from '@angular/router';
+
+function validateQueryParam(queryParam: string): Region {
+  const queryParamLower = queryParam.toLowerCase();
+  const validRegions: Record<string, Region> = {
+    africa: 'Africa',
+    americas: 'Americas',
+    asia: 'Asia',
+    europe: 'Europe',
+    oceania: 'Oceania',
+    antartic: 'Antarctic',
+  };
+
+  return validRegions[queryParamLower] ?? 'Americas';
+}
 
 @Component({
   selector: 'app-by-region-page',
@@ -17,7 +32,6 @@ import { Region } from '../../interfaces/region.type';
 })
 export default class ByRegionPageComponent {
 
-  public selectedRegionSearch = signal<Region>('');
   public regionsSearch: RegionSearch[] = [
     { category: 'Africa', style: 'btn-primary', isActive: false },
     { category: 'Americas', style: 'btn-secondary', isActive: false },
@@ -29,14 +43,28 @@ export default class ByRegionPageComponent {
   public countryResource = rxResource<Country[], CountryRequest>({
     request: () => ({ query: this.selectedRegionSearch() }),
     loader: ({ request }) => {
-      const query = request.query as Region;
+      const query: Region = validateQueryParam(request.query);
       if (!query) {
         return of([]);
       }
+
+      this.router.navigate(['/country/by-region'], {
+        queryParams: {
+          query,
+        }
+      }
+      );
+
       return this.countryService.searchByRegion(query);
     },
   });
   public countries = computed<Country[]>(() => this.countryResource.value() ?? []);
+
+  private activatedRoute = inject(ActivatedRoute);
+  private router = inject(Router);
+
+  public queryParam: string = this.activatedRoute.snapshot.queryParamMap.get('query') ?? '';
+  public selectedRegionSearch = linkedSignal<Region>(() => validateQueryParam(this.queryParam));
 
   private countryService = inject(CountryService);
 
