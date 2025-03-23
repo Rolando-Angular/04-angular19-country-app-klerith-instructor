@@ -23,7 +23,6 @@ export class ByCapitalPageComponent {
   public countryResource = rxResource<Country[], CountryRequest>({
     request: () => ({ query: this.query() }),
     loader: ({ request }) => {
-      console.log(`entro a resource: ${request.query}`);
       const query: string = request.query;
       if (!query) {
         return of([]);

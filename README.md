@@ -3,7 +3,7 @@
 ### CONCEPTS
 * @for + @if-@else if
 * routerLink + routerLinkActive + Location
-* ActivatedRouter (snapshot)
+* ActivatedRouter (snapshot) + Router
 * children + loadChildren + loadComponent
 * signal (output + input + toSignal + linkedSignal)
 * effect (onCleanup)
