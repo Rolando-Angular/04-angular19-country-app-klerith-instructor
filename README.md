@@ -23,4 +23,4 @@ ng serve
 ```
 
 ### DEPLOYED ON NETLIFY
-### https://flourishing-biscochitos-20f230.netlify.app
+### https://angular19-country-app-rbard.netlify.app/
